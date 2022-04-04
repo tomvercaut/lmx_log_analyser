@@ -24,6 +24,7 @@ public class App {
         }
 
         var writer = new ExcelWriter();
+        writer.writeSheet(log, "data");
         if (appOptions.getAnalyses().contains(AppOptions.Analysis.OutOfLicense)) {
             var predicate = new OutOfLicensePredicate();
             Log filtered = new Log(log.stream().filter(predicate).collect(Collectors.toList()));
